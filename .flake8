@@ -1,0 +1,39 @@
+[flake8]
+# 最大行寬
+max-line-length = 120
+
+# 忽略以下錯誤
+ignore =
+    E203,
+    W503,
+    E266,
+    E402
+
+# 在程式碼中禁止的 pattern
+extend-ignore =
+    # 禁止使用 print 除非在測試檔案中
+    T201,
+
+# 掃描時排除不必要的資料夾
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    .venv,
+    build,
+    dist
+
+# 開啟複雜度檢查（避免過度複雜函式）
+max-complexity = 10
+
+# 開啟 cyclomatic complexity
+count = True
+
+# 變數命名規範
+select = B, C, E, F, W, B950
+
+# 自訂警告訊
+application-import-names = app
+
+# 自訂 docstring 規範
+docstring-convention = google
