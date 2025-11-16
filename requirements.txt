@@ -3,4 +3,8 @@ mccabe==0.7.0
 pycodestyle==2.14.0
 pyflakes==3.4.0
 
-
+#測試用的錯誤套件
+PyYAML==5.1
+pillow==6.0.0
+requests==2.19.0
+Django==2.0.0
