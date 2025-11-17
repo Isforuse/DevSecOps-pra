@@ -1,0 +1,37 @@
+name: Semgrep SAST Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    # Install Semgrep
+    - name: Install Semgrep
+      run: |
+        pip install semgrep
+
+    # Run Semgrep Scan (使用官方規則集)
+    - name: Run Semgrep Scan
+      run: |
+        semgrep --config=auto --error
+
+    # Optional: 將結果輸出到 summary
+    - name: Upload Report Summary
+      if: always()
+      run: |
+        echo "### 🔍 Semgrep Scan Completed" >> $GITHUB_STEP_SUMMARY
+        echo "Results are available in job logs." >> $GITHUB_STEP_SUMMARY
