@@ -7,4 +7,4 @@ pyflakes==3.4.0
 PyYAML==5.1
 pillow==6.0.0
 requests==2.19.0
-Django==2.0.0
+Django==4.2.26
