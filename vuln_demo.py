@@ -1,19 +1,15 @@
-# vuln_demo.py
-
 import os
-import subprocess
+import yaml
 
-# 任意命令執行
-user_input = "ls; rm -rf /"
-os.system(user_input)
+# Command injection
+user = input("Enter command: ")
+os.system(user)
 
-# SQL injection pattern
-query = "SELECT * FROM users WHERE id = " + user_input
+# Unsafe YAML
+data = yaml.load("foo: bar")
 
-# Hardcoded secret
-API_KEY = "12345-SECRET"
+# eval injection
+def insecure_eval(code):
+    eval(code)
 
-# Dangerous eval
-dangerous = "1+2"
-print(eval(dangerous))
-
+insecure_eval("print('bad')")
