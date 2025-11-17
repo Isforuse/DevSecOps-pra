@@ -14,4 +14,6 @@ jobs:
 
       - uses: returntocorp/semgrep-action@v1
         with:
-          config: "p/ci"
+          config: |
+            p/python
+            p/owasp-top-ten
