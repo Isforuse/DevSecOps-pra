@@ -14,5 +14,6 @@ jobs:
 
       - uses: returntocorp/semgrep-action@v1
         with:
-          config: >-
+          config: |
             p/security-audit
+            p/python
