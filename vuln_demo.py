@@ -1,20 +1,18 @@
-import yaml
+# vuln_demo.py
+
+import os
 import subprocess
-import hashlib
 
-def bad1():
-    eval("print('Hello')")
+# 任意命令執行
+user_input = "ls; rm -rf /"
+os.system(user_input)
 
-def bad2():
-    yaml.load("foo")  # unsafe load
+# SQL injection pattern
+query = "SELECT * FROM users WHERE id = " + user_input
 
-def bad3(cmd):
-    subprocess.call(cmd, shell=True)
+# Hardcoded secret
+API_KEY = "12345-SECRET"
 
-def bad4(pwd):
-    hashlib.md5(pwd.encode()).hexdigest()
-
-bad1()
-bad2()
-bad3("ls; rm -rf /")
-bad4("mypassword")
+# Dangerous eval
+dangerous = "1+2"
+print(eval(dangerous))
