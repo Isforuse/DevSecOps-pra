@@ -14,5 +14,5 @@ jobs:
 
       - uses: returntocorp/semgrep-action@v1
         with:
-          config: "p/security-audit"
-          audit_on: "pull_request"   # ✅ 只有 PR 會變 blocking，push 不會 fail
+          config: >-
+            p/security-audit
