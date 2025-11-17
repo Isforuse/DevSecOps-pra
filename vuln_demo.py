@@ -8,3 +8,5 @@ subprocess.call("ls " + input("name: "))
 
 # ⚠ 3. Hardcoded credential
 password = "123456"
+
+::
